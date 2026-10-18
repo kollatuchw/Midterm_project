@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html data-theme="dracula">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigBobAi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Navigation Bar -->
+        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8">
+            <div class="w-full flex justify-between items-center px-4 md:px-12">
+                <a href="index.html" class="text-4xl font-bold">BigBobAi</a>
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors"
+                            onclick="showJobListings()">Home</a></li>
+                    <!-- <li><a href="service.html" class="hover:text-blue-400 transition-colors">Services</a></li> -->
+                    <li><a href="about.html" class="hover:text-blue-400 transition-colors">About us</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header Section -->
+        <header id="main-header" class="text-center mb-12 animate-fade-in">
+            <h1 class="text-4xl font-extrabold ">Welcome to BigBobAi</h1>
+            <p class="text-lg ">Your trusted partner in certification and training solutions.</p>
+        </header>
+
+        <!-- Why Work with Us Section -->
+        <div id="why-work-with-us" class="container mx-auto p-8 mb-12 bg-white rounded-xl shadow-md animate-fade-in">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">ทำไมต้องร่วมงานกับเรา?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zM11 15h2v2h-2z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">วัฒนธรรมองค์กรที่เปิดกว้าง</h3>
+                    <p class="text-gray-600 text-sm">เราส่งเสริมสภาพแวดล้อมที่สร้างสรรค์และทำงานร่วมกันได้อย่างอิสระ</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">โอกาสในการเติบโต</h3>
+                    <p class="text-gray-600 text-sm">เราลงทุนในการพัฒนาพนักงาน และมอบโอกาสในการก้าวหน้าในสายอาชีพ</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zM11 15h2v2h-2z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">สวัสดิการที่ยอดเยี่ยม</h3>
+                    <p class="text-gray-600 text-sm">เรามอบสวัสดิการที่ครอบคลุม ทั้งด้านสุขภาพและคุณภาพชีวิตที่ดี</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="job-listings-title" class="text-3xl font-bold text-center mb-8 animate-fade-in">
+            ตำแหน่งที่เราเปิดรับ</h2>
+
+        <!-- Job Listings Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in" id="job-listings">
+            <!-- Job cards will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Job Detail Section (initially hidden) -->
+        <div id="job-detail-section" class="job-detail-container bg-white p-8 max-w-4xl mx-auto hidden">
+            <button onclick="showJobListings()"
+                class="mb-4 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors">
+                &larr; กลับ
+            </button>
+            <h2 id="job-detail-title" class="text-3xl font-bold text-gray-900 mb-4"></h2>
+            <div id="job-detail-content" class="text-gray-700"></div>
+            <button onclick="showApplicationForm()"
+                class="inline-block mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">สมัครงานตำแหน่งนี้</button>
+        </div>
+        <!-- Application Form Section (initially hidden) -->
+        <div class="form-container bg-white p-8 max-w-2xl mx-auto hidden" id="application-form">
+            <button onclick="showJobDetails(currentJobIndex)"
+                class="mb-4 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors">
+                &larr; กลับ
+            </button>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">กรอกข้อมูลเพื่อสมัครงาน</h2>
+            <!-- Validation ตรงนี้นะะะะะะะะะะะะะะะะะะ -->
+            <form id="application-form-data" class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">ชื่อผู้ใช้ (5-12
+                        ตัวอักษร)</label>
+                    <input type="text" id="username" name="username"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="fname" class="block text-sm font-medium text-gray-700">ชื่อจริง</label>
+                        <input type="text" id="fname" name="fname"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="lname" class="block text-sm font-medium text-gray-700">นามสกุล</label>
+                        <input type="text" id="lname" name="lname"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">อีเมล</label>
+                    <input type="email" id="email" name="email"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">เบอร์โทรศัพท์ (10 หลัก)</label>
+                    <input type="tel" id="phone" name="phone"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">ที่อยู่</label>
+                    <textarea id="address" name="address" rows="3"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <label for="portfolio" class="block text-sm font-medium text-gray-700">อัปโหลด Portfolio/CV
+                        Resume</label>
+                    <input type="file" id="portfolio" name="portfolio" class="mt-1 block w-full text-sm text-gray-500
+                               file:mr-4 file:py-2 file:px-4
+                               file:rounded-full file:border-0
+                               file:text-sm file:font-semibold
+                               file:bg-blue-50 file:text-blue-700
+                               hover:file:bg-blue-100 file:cursor-pointer">
+                </div>
+                <div>
+                    <label for="country" class="block text-sm font-medium text-gray-700">ประเทศ</label>
+                    <select id="country" name="country"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" selected>กรุณาเลือกประเทศ</option>
+                        <option value="usa">USA</option>
+                        <option value="thailand">Thailand</option>
+                        <option value="uk">UK</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="zip" class="block text-sm font-medium text-gray-700">รหัสไปรษณีย์</label>
+                    <input type="text" id="zip" name="zip"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="sex" class="block text-sm font-medium text-gray-700 mb-2">เพศ</label>
+                    <select id="sex" name="sex"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" disabled selected>กรุณาเลือก</option>
+                        <option value="ชาย">ชาย</option>
+                        <option value="หญิง">หญิง</option>
+                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                        <option value="เพศทางเลือก">เพศทางเลือก</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    ส่งข้อมูล
+                </button>
+            </form>
+
+            <!-- Custom Alert Modal -->
+            <div id="alert-modal"
+                class="fixed inset-0  bg-gray-600 bg-opacity-50 z-50 flex items-center justify-center hidden modal-overlay">
+                <div class="bg-white rounded-xl p-6 max-w-sm text-center shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">แจ้งเตือน</h3>
+                    <p id="alert-message" class="text-red-600 mb-6 bg-opacity-10"></p>
+                    <button onclick="closeModal('alert-modal')"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">ตกลง</button>
+                </div>
+            </div>
+
+            <!-- Success Message Modal -->
+            <div id="success-modal"
+                class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
+                <div class="bg-white rounded-lg p-6 max-w-sm text-center shadow-xl">
+                    <p class="text-xl font-bold mb-4 text-green-600">สมัครสำเร็จ!</p>
+                    <p class="text-gray-700 mb-6">ขอบคุณที่ให้ความสนใจ เราจะติดต่อกลับโดยเร็วที่สุด</p>
+                    <button onclick="closeModal('success-modal')"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        ปิด
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer เท่ ๆ คูล ๆ-->
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12 ">
+        <div class="container mx-auto">
+            <p>&copy; 2026 BigBobAi. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="asset/scripts/validation.js" defer></script>
+</body>
+
+</html>
