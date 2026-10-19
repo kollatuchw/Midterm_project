@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dracula">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Registration | BigBobAi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI (ล็อกเวอร์ชัน 4) -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- สไตล์ของฟอร์ม (สถานะ valid / invalid) -->
+    <link rel="stylesheet" href="register_template.css">
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Navigation Bar -->
+        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8">
+            <div class="w-full flex justify-between items-center px-4 md:px-12">
+                <a href="index.html" class="flex items-center gap-3">
+                    <!-- วงกลมใส่รูป Logo (ขนาดเล็ก) -->
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden border-2 border-blue-400 flex-shrink-0 shadow-md">
+                        <img src="image/image.png" alt="BigBobAi Logo" class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/150/2563eb/ffffff?text=AI';">
+                    </div>
+                    <span
+                        class="text-3xl font-bold bg-gradient-to-r from-blue-400 bg-clip-text text-transparent">BigBobAi</span>
+                </a>
+
+                <!-- :ซ่อนหน้าจอคอมพิวเตอร์ เมื่อลดขนาดหน้าต่าง -->
+                <ul class="hidden md:flex space-x-6 text-lg">
+                    <li><a href="index.html" class="text-blue-400 font-bold transition-colors">Home</a></li>
+                    <li><a href="jobs.html" class="hover:text-blue-400 font-bold transition-colors">Jobs</a></li>
+                    <li><a href="courses.html" class="hover:text-blue-400 font-bold transition-colors">Courses</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 font-bold transition-colors">About us</a></li>
+                </ul>
+
+                <!-- เมนู Hamburger มือถือ -->
+                <div class="dropdown dropdown-end md:hidden">
+                    <label tabindex="0" class="btn btn-ghost btn-circle swap swap-rotate text-white">
+                        <input type="checkbox" />
+
+                        <!-- ไอคอน แฮมเบอร์เกอร์ -->
+                        <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 512 512">
+                            <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                        </svg>
+
+                        <!-- ไอคอน กากบาท X -->
+                        <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 512 512">
+                            <polygon
+                                points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                        </svg>
+                    </label>
+
+                    <!-- รายการเมนูเมื่อกดบนมือถือ -->
+                    <ul tabindex="0"
+                        class="menu menu-md dropdown-content mt-3 z-[1] p-3 shadow-xl bg-gray-800 rounded-box w-52 border border-gray-700 space-y-2">
+                        <li><a href="index.html" class="hover:text-blue-400 font-bold">Home</a></li>
+                        <li><a href="jobs.html" class="hover:text-blue-400 font-bold">Jobs</a></li>
+                        <li><a href="courses.html" class="hover:text-blue-400 font-bold">Courses</a></li>
+                        <li><a href="about.html" class="hover:text-blue-400 font-bold">About us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-3">ลงทะเบียนสมัครงาน</h1>
+            <p class="text-lg text-gray-300">Talent Registration &amp; AI Skill Profiling ·
+                กรอกข้อมูลเพื่อสมัครงานหรือรับสิทธิ์ประเมินทักษะ AI</p>
+        </header>
+
+        <div class="form-card max-w-2xl mx-auto bg-white text-gray-700 rounded-xl shadow-md p-6 md:p-8">
+            <!-- ข้อความเมื่อลงทะเบียนสำเร็จ -->
+            <div id="successBox" class="success-box" role="status"></div>
+
+            <form id="registerForm" novalidate>
+                <h2 class="section-title">1. ข้อมูลพื้นฐาน</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-x-4">
+                    <div class="field">
+                        <label class="form-label" for="title">คำนำหน้า *</label>
+                        <select id="title" name="title">
+                            <option value="">(เลือก)</option>
+                            <option value="นาย">นาย</option>
+                            <option value="นาง">นาง</option>
+                            <option value="นางสาว">นางสาว</option>
+                            <option value="อื่นๆ">อื่นๆ</option>
+                        </select>
+                        <p class="error-msg" id="titleError"></p>
+                    </div>
+                    <div class="field md:col-span-2">
+                        <label class="form-label" for="fullName">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="เช่น สมชาย ใจดี"
+                            autocomplete="name">
+                        <p class="error-msg" id="fullNameError"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <div class="field">
+                        <label class="form-label" for="phone">เบอร์โทรศัพท์ติดต่อ *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="08XXXXXXXX" maxlength="12"
+                            autocomplete="tel">
+                        <p class="error-msg" id="phoneError"></p>
+                    </div>
+                    <div class="field">
+                        <label class="form-label" for="email">อีเมล *</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com"
+                            autocomplete="email">
+                        <p class="error-msg" id="emailError"></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="form-label" for="address">ที่อยู่ *</label>
+                    <textarea id="address" name="address" rows="3"
+                        placeholder="บ้านเลขที่ ถนน แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์"></textarea>
+                    <p class="error-msg" id="addressError"></p>
+                </div>
+
+                <div class="field">
+                    <label class="form-label" for="education">ระดับการศึกษา *</label>
+                    <select id="education" name="education">
+                        <option value="">(กรุณาเลือกระดับการศึกษา)</option>
+                        <option value="มัธยมศึกษา">มัธยมศึกษา</option>
+                        <option value="ปวช./ปวส.">ปวช./ปวส.</option>
+                        <option value="ปริญญาตรี">ปริญญาตรี</option>
+                        <option value="ปริญญาโท">ปริญญาโท</option>
+                        <option value="ปริญญาเอก">ปริญญาเอก</option>
+                    </select>
+                    <p class="error-msg" id="educationError"></p>
+                </div>
+
+                <h2 class="section-title">2. ระดับสมรรถนะ AI (AI Skill Tier)</h2>
+                <div class="field">
+                    <div class="option-group" id="aiTierGroup">
+                        <label class="option"><input type="radio" name="aiTier" value="Beginner">
+                            <span><b>ระดับเริ่มต้น (Beginner)</b><small>เริ่มเรียนรู้และทดลองใช้เครื่องมือ
+                                    AI</small></span></label>
+                        <label class="option"><input type="radio" name="aiTier" value="Pioneer">
+                            <span><b>ระดับผู้บุกเบิก (Pioneer)</b><small>ใช้ AI ในงานจริงได้ต่อเนื่อง
+                                    และแนะนำผู้อื่นได้</small></span></label>
+                        <label class="option"><input type="radio" name="aiTier" value="Innovator">
+                            <span><b>ระดับผู้สร้างสรรค์สิ่งใหม่ (Innovator)</b><small>ออกแบบหรือประยุกต์ AI
+                                    เพื่อแก้ปัญหาใหม่ ๆ</small></span></label>
+                    </div>
+                    <p class="error-msg" id="aiTierError"></p>
+                </div>
+
+                <h2 class="section-title">3. ตำแหน่งงานที่ต้องการสมัคร</h2>
+                <div class="field">
+                    <label class="form-label" for="position">ตำแหน่งงาน *</label>
+                    <!-- ตัวเลือกต้องตรงกับตำแหน่งในหน้า jobs.html -->
+                    <select id="position" name="position">
+                        <option value="">(กรุณาเลือกตำแหน่งงาน)</option>
+                        <option value="Digital &amp; AI Transformation Associate">Digital &amp; AI Transformation
+                            Associate · Siam Smart Solution</option>
+                        <option value="AI-Assisted Web Developer">AI-Assisted Web Developer · NexGen Innovations
+                        </option>
+                        <option value="AI Content &amp; Prompt Specialist">AI Content &amp; Prompt Specialist · Creative
+                            Mind Studio</option>
+                        <option value="Junior Data Analyst (AI-Powered BI)">Junior Data Analyst (AI-Powered BI) ·
+                            DataBright Analytics</option>
+                    </select>
+                    <p class="error-msg" id="positionError"></p>
+                </div>
+
+                <h2 class="section-title">4. การยินยอมข้อมูลส่วนบุคคล (PDPA)</h2>
+                <div class="field">
+                    <div class="option-group" id="consentGroup">
+                        <label class="option"><input type="checkbox" id="consent" name="consent" value="yes">
+                            <span>ข้าพเจ้ายินยอมให้ BigBobAi เก็บรวบรวม ใช้ และประมวลผลข้อมูลส่วนบุคคลของข้าพเจ้า
+                                ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)
+                                เพื่อวัตถุประสงค์ในการสมัครงานและประเมินทักษะ AI *</span></label>
+                    </div>
+                    <p class="error-msg" id="consentError"></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                    <button type="submit" class="btn-submit">ส่งใบสมัคร</button>
+                    <button type="reset" class="btn-reset">ล้างข้อมูล</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12">
+        <div class="container mx-auto">
+            <p>&copy; 2026 BigBobAi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="\Midterm_project\script\formvalidate.js"></script>
+</body>
+
+</html>

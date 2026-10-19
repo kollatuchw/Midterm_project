@@ -1,0 +1,114 @@
+/* register.css — สไตล์ฟอร์มสมัครงาน (ใช้คู่กับ Tailwind + DaisyUI theme dracula) */
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2563eb;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: .35rem;
+    margin: 1.5rem 0 1rem;
+}
+.section-title:first-of-type { margin-top: 0; }
+
+.field { margin-bottom: 1rem; }
+
+.form-label {
+    display: block;
+    margin-bottom: .35rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* ช่องกรอกข้อมูลทั่วไป */
+.field input:not([type="radio"]):not([type="checkbox"]),
+.field select,
+.field textarea {
+    width: 100%;
+    padding: .6rem .75rem;
+    border: 1px solid #d1d5db;
+    border-radius: .5rem;
+    background: #fff;
+    color: #1f2937;
+    font-size: .95rem;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: #9ca3af; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .2);
+}
+
+/* สถานะถูกต้อง (ขอบเขียว) / ผิดพลาด (ขอบแดง) — คลาสที่ JS เป็นคนใส่ให้ */
+.field input.valid,
+.field select.valid,
+.field textarea.valid { border-color: #16a34a; background: #f0fdf4; }
+
+.field input.invalid,
+.field select.invalid,
+.field textarea.invalid { border-color: #dc2626; background: #fef2f2; }
+
+/* ข้อความ error (ซ่อนไว้จนกว่า JS จะสั่งแสดง) */
+.error-msg {
+    display: none;
+    margin-top: .3rem;
+    font-size: .8rem;
+    color: #dc2626;
+}
+
+/* กลุ่มตัวเลือก radio / checkbox */
+.option-group {
+    display: grid;
+    gap: .5rem;
+    padding: .25rem;
+    border: 1px solid transparent;
+    border-radius: .6rem;
+}
+.option-group.invalid { border-color: #dc2626; background: #fef2f2; }
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: .65rem .75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: .5rem;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 400;
+    color: #374151;
+}
+.option:hover { background: #eff6ff; }
+.option:has(input:checked) { border-color: #2563eb; background: #eff6ff; }
+.option input { accent-color: #2563eb; margin-top: .3rem; }
+.option span b { display: block; color: #1f2937; }
+.option span small { display: block; color: #6b7280; }
+
+/* ปุ่ม */
+.btn-submit,
+.btn-reset {
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+.btn-submit { flex: 1; background: #2563eb; color: #fff; border: 0; }
+.btn-submit:hover { background: #1d4ed8; }
+.btn-reset { background: #fff; color: #4b5563; border: 1px solid #d1d5db; }
+.btn-reset:hover { background: #f3f4f6; }
+
+/* กล่องแจ้งผลสำเร็จ */
+.success-box {
+    display: none;
+    margin-bottom: 1.25rem;
+    padding: .9rem 1rem;
+    border: 1px solid #16a34a;
+    border-radius: .5rem;
+    background: #f0fdf4;
+    color: #166534;
+    font-weight: 600;
+}

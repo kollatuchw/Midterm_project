@@ -14,19 +14,56 @@
 <body class="flex flex-col min-h-screen">
     <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Navigation Bar -->
-        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8 shadow-lg">
+        <!-- Navigation Bar -->
+        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8">
             <div class="w-full flex justify-between items-center px-4 md:px-12">
                 <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden border-2 border-blue-400 flex-shrink-0 shadow-md">
-                        <img src="image/image.png" alt="BigBobAi Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/2563eb/ffffff?text=AI';">
+                    <!-- วงกลมใส่รูป Logo (ขนาดเล็ก) -->
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden border-2 border-blue-400 flex-shrink-0 shadow-md">
+                        <img src="image/image.png" alt="BigBobAi Logo" class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/150/2563eb/ffffff?text=AI';">
                     </div>
-                    <span class="text-3xl font-bold bg-gradient-to-r from-blue-400 bg-clip-text text-transparent">BigBobAi</span>
+                    <span
+                        class="text-3xl font-bold bg-gradient-to-r from-blue-400 bg-clip-text text-transparent">BigBobAi</span>
                 </a>
-                <ul class="flex space-x-6 text-lg">
-                    <li><a href="index.html" class="hover:text-blue-400 font-bold transition-colors">Home</a></li>
-                    <li><a href="jobs.html" class="text-blue-400 font-bold transition-colors">Jobs</a></li>
+
+                <!-- :ซ่อนหน้าจอคอมพิวเตอร์ เมื่อลดขนาดหน้าต่าง -->
+                <ul class="hidden md:flex space-x-6 text-lg">
+                    <li><a href="index.html" class="text-blue-400 font-bold transition-colors">Home</a></li>
+                    <li><a href="jobs.html" class="hover:text-blue-400 font-bold transition-colors">Jobs</a></li>
                     <li><a href="courses.html" class="hover:text-blue-400 font-bold transition-colors">Courses</a></li>
                     <li><a href="about.html" class="hover:text-blue-400 font-bold transition-colors">About us</a></li>
+                </ul>
+
+                <!-- เมนู Hamburger มือถือ -->
+                <div class="dropdown dropdown-end md:hidden">
+                    <label tabindex="0" class="btn btn-ghost btn-circle swap swap-rotate text-white">
+                        <input type="checkbox" />
+
+                        <!-- ไอคอน แฮมเบอร์เกอร์ -->
+                        <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 512 512">
+                            <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                        </svg>
+
+                        <!-- ไอคอน กากบาท X -->
+                        <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 512 512">
+                            <polygon
+                                points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                        </svg>
+                    </label>
+
+                    <!-- รายการเมนูเมื่อกดบนมือถือ -->
+                    <ul tabindex="0"
+                        class="menu menu-md dropdown-content mt-3 z-[1] p-3 shadow-xl bg-gray-800 rounded-box w-52 border border-gray-700 space-y-2">
+                        <li><a href="index.html" class="hover:text-blue-400 font-bold">Home</a></li>
+                        <li><a href="jobs.html" class="hover:text-blue-400 font-bold">Jobs</a></li>
+                        <li><a href="courses.html" class="hover:text-blue-400 font-bold">Courses</a></li>
+                        <li><a href="about.html" class="hover:text-blue-400 font-bold">About us</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
@@ -38,22 +75,42 @@
 
         <!-- Top 3 Feature Cards Section -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
-                <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div>
-                <div class="p-6"><h3 class="text-xl font-bold text-gray-800 mb-2">หลักสูตรการพัฒนาทักษะ</h3><p class="text-gray-600 text-sm">ค้นหาหลักสูตรอบรมที่ช่วยเพิ่มพูนทักษะเฉพาะด้านสำหรับงานของคุณ</p></div>
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div class="h-48 overflow-hidden"><img
+                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80"
+                        class="w-full h-full object-cover" /></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">หลักสูตรการพัฒนาทักษะ</h3>
+                    <p class="text-gray-600 text-sm">ค้นหาหลักสูตรอบรมที่ช่วยเพิ่มพูนทักษะเฉพาะด้านสำหรับงานของคุณ</p>
+                </div>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
-                <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div>
-                <div class="p-6"><h3 class="text-xl font-bold text-gray-800 mb-2">การสอบใบรับรองความรู้</h3><p class="text-gray-600 text-sm">พิสูจน์ความเชี่ยวชาญของคุณด้วยการสอบรับรองมาตรฐานระดับสากล</p></div>
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div class="h-48 overflow-hidden"><img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
+                        class="w-full h-full object-cover" /></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">การสอบใบรับรองความรู้</h3>
+                    <p class="text-gray-600 text-sm">พิสูจน์ความเชี่ยวชาญของคุณด้วยการสอบรับรองมาตรฐานระดับสากล</p>
+                </div>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
-                <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80" class="w-full h-full object-cover" /></div>
-                <div class="p-6"><h3 class="text-xl font-bold text-gray-800 mb-2">การสัมมนาและการแลกเปลี่ยนความรู้</h3><p class="text-gray-600 text-sm">อัปเดตเทรนด์และแลกเปลี่ยนความรู้กับผู้เชี่ยวชาญในวงการ</p></div>
+            <div
+                class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between">
+                <div class="h-48 overflow-hidden"><img
+                        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80"
+                        class="w-full h-full object-cover" /></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">การสัมมนาและการแลกเปลี่ยนความรู้</h3>
+                    <p class="text-gray-600 text-sm">อัปเดตเทรนด์และแลกเปลี่ยนความรู้กับผู้เชี่ยวชาญในวงการ</p>
+                </div>
             </div>
         </div>
 
-        <h2 class="text-3xl font-bold text-center mb-2 animate-fade-in text-white">หลักสูตรเพิ่มศักยภาพการทำงานสำหรับคนรุ่นใหม่</h2>
-        <p class="text-center text-gray-300 text-sm mb-8 animate-fade-in">ค้นหาหลักสูตรอบรมที่ออกแบบมาเพื่อเสริมสร้างทักษะและความเชี่ยวชาญในสายงานของคุณ</p>
+        <h2 class="text-3xl font-bold text-center mb-2 animate-fade-in text-white">
+            หลักสูตรเพิ่มศักยภาพการทำงานสำหรับคนรุ่นใหม่</h2>
+        <p class="text-center text-gray-300 text-sm mb-8 animate-fade-in">
+            ค้นหาหลักสูตรอบรมที่ออกแบบมาเพื่อเสริมสร้างทักษะและความเชี่ยวชาญในสายงานของคุณ</p>
 
         <!-- Course Listings Grid (เรนเดอร์อัตโนมัติจาก JS) -->
         <div id="course-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in"></div>
@@ -65,7 +122,8 @@
             <div class="relative h-48 sm:h-56">
                 <img id="modal-img" src="" alt="Course Cover" class="w-full h-full object-cover">
                 <form method="dialog">
-                    <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 text-white bg-gray-800/60 hover:bg-gray-800">✕</button>
+                    <button
+                        class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 text-white bg-gray-800/60 hover:bg-gray-800">✕</button>
                 </form>
             </div>
             <div class="p-6">
@@ -74,13 +132,16 @@
                 <div class="bg-gray-50 p-4 rounded-lg space-y-2 text-sm text-gray-700 border border-gray-200 mb-6">
                     <p><strong>ระยะเวลา:</strong> <span id="modal-duration"></span></p>
                     <p><strong>คุณสมบัติ:</strong> <span id="modal-req"></span></p>
-                    <p class="text-base font-bold text-blue-600 mt-2"><strong>ราคา:</strong> <span id="modal-price"></span></p>
+                    <p class="text-base font-bold text-blue-600 mt-2"><strong>ราคา:</strong> <span
+                            id="modal-price"></span></p>
                 </div>
                 <div class="flex gap-3 justify-end">
                     <form method="dialog">
-                        <button class="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded-lg hover:bg-gray-300 transition-colors">ปิด</button>
+                        <button
+                            class="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded-lg hover:bg-gray-300 transition-colors">ปิด</button>
                     </form>
-                    <a id="modal-register-btn" href="#" target="_blank" class="px-6 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-block text-center">ลงทะเบียน</a>
+                    <a id="modal-register-btn" href="#" target="_blank"
+                        class="px-6 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-block text-center">ลงทะเบียน</a>
                 </div>
             </div>
         </div>
@@ -89,108 +150,11 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12">
-        <div class="container mx-auto"><p>&copy; 2026 BigBobAi. All rights reserved.</p></div>
+        <div class="container mx-auto">
+            <p>&copy; 2026 BigBobAi. All rights reserved.</p>
+        </div>
     </footer>
-
-    <!-- Script จัดการข้อมูลคอร์สและการสร้างการ์ดแบบไดนามิก -->
-    <script>
-        // 1. ข้อมูลคอร์สทั้ง 6 คอร์ส
-       const courses = [
-            {
-                title: "AWS Certified Machine Learning – Specialty Preparation",
-                shortDesc: "เตรียมความพร้อมสอบใบรับรอง AWS ML Specialty และสร้างระบบ Machine Learning บนระบบ Cloud",
-                fullDesc: "เรียนรู้การออกแบบ พัฒนา และดูแลรักษาโมเดล Machine Learning บนระบบ AWS ตั้งแต่การเตรียมข้อมูล Data Engineering, EDA ไปจนถึงการจัดทำ MLOps ด้วย Amazon SageMaker",
-                duration: "30 ชั่วโมง (4 วัน)",
-                req: "มีความรู้พื้นฐาน Python และ Cloud Computing เบื้องต้น",
-                price: "12,500 บาท",
-                img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80",
-                link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/"
-            },
-            {
-                title: "Microsoft Certified: Azure AI Engineer Associate (AI-102)",
-                shortDesc: "พัฒนาโซลูชัน AI ระดับองค์กรด้วย Microsoft Azure Cognitive Services และ Azure OpenAI",
-                fullDesc: "สร้าง รัน และจัดการโซลูชัน AI ด้วยการใช้งาน Azure AI Services, Azure Machine Learning และการประยุกต์ใช้ Generative AI / Copilot ในแอปพลิเคชันเชิงธุรกิจ",
-                duration: "24 ชั่วโมง (3 วัน)",
-                req: "มีความเข้าใจเบื้องต้นเกี่ยวกับ REST API และการเขียนโปรแกรม",
-                price: "10,900 บาท",
-                img: "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600&auto=format&fit=crop&q=80",
-                link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/"
-            },
-            {
-                title: "Generative AI & LLM Engineering with RAG Architecture",
-                shortDesc: "พัฒนาและประยุกต์ใช้ Large Language Models (LLMs), Prompt Engineering และระบบ RAG",
-                fullDesc: "เจาะลึกการ Fine-tuning โมเดลภาษาขนาดใหญ่ (LLMs), การใช้งาน LangChain, LlamaIndex และการออกแบบระบบ Retrieval-Augmented Generation (RAG) สำหรับเชื่อมฐานข้อมูลองค์กรเข้ากับ AI",
-                duration: "24 ชั่วโมง (3 วัน)",
-                req: "เขียนโปรแกรมภาษา Python ได้ในระดับปานกลาง",
-                price: "11,500 บาท",
-                img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&auto=format&fit=crop&q=80",
-                link: "https://example.com/register-llm-cert"
-            },
-            {
-                title: "TensorFlow Developer Certificate Program",
-                shortDesc: "สร้างและฝึกฝนโมเดล Deep Learning ด้วย TensorFlow และ Keras สำหรับงาน Vision และ NLP",
-                fullDesc: "เตรียมตัวสำหรับการสอบใบรับรอง TensorFlow Developer Certificate เรียนรู้การสร้าง Neural Networks, Convolutional Neural Networks (CNNs) และ Natural Language Processing (NLP)",
-                duration: "30 ชั่วโมง (4 วัน)",
-                req: "เข้าใจการเขียนโปรแกรม Python และคณิตศาสตร์พื้นฐานสำหรับ ML",
-                price: "9,900 บาท",
-                img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80",
-                link: "https://www.tensorflow.org/certificate"
-            },
-            {
-                title: "AI Data Engineer & Vector Database Certification",
-                shortDesc: "จัดการ Big Data สำหรับ AI และออกแบบ Data Pipeline ด้วย Vector Databases (Pinecone/Chroma)",
-                fullDesc: "เรียนรู้การออกแบบ Data Pipeline สำหรับ AI/ML, การแปลงข้อมูลเป็น Embeddings และการบริหารจัดการ Vector Databases เพื่อสนับสนุนระบบ Search และความจำของ LLMs",
-                duration: "24 ชั่วโมง (3 วัน)",
-                req: "มีความรู้พื้นฐาน SQL และ Python",
-                price: "10,500 บาท",
-                img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
-                link: "https://example.com/register-vector-db-cert"
-            },
-            {
-                title: "Applied Computer Vision & Image Processing with PyTorch",
-                shortDesc: "ประมวลผลภาพและวิดีโอด้วย AI สำหรับระบบตรวจจับวัตถุ จดจำใบหน้า และระบบอัตโนมัติ",
-                fullDesc: "สร้างแอปพลิเคชัน Computer Vision ด้วย PyTorch และ OpenCV เรียนรู้โมเดล YOLO, Object Detection, Image Segmentation และเทคนิคการ Deploy โมเดลลงอุปกรณ์ Edge Devices",
-                duration: "24 ชั่วโมง (3 วัน)",
-                req: "มีความรู้พื้นฐานการเขียนโปรแกรม Python",
-                price: "9,500 บาท",
-                img: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=600&auto=format&fit=crop&q=80",
-                link: "https://example.com/register-computer-vision-cert"
-            }
-        ];
-
-        // 2. ฟังก์ชันเรนเดอร์การ์ดคอร์สทั้ง 6 ลงใน HTML
-        const container = document.getElementById('course-container');
-        container.innerHTML = courses.map((item, index) => `
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex flex-col justify-between p-6">
-                <div>
-                    <div class="h-40 -mx-6 -mt-6 mb-4 overflow-hidden">
-                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover" />
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">${item.title}</h3>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed line-clamp-3">${item.shortDesc}</p>
-                </div>
-                <div>
-                    <button onclick="openCourseModal(${index})" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
-                        ดูรายละเอียด
-                    </button>
-                </div>
-            </div>
-        `).join('');
-
-        // 3. ฟังก์ชันเปิด Modal และแสดงข้อมูลตาม Index คอร์สที่ถูกคลิก
-        function openCourseModal(index) {
-            const course = courses[index];
-            document.getElementById('modal-title').innerText = course.title;
-            document.getElementById('modal-desc').innerText = course.fullDesc;
-            document.getElementById('modal-duration').innerText = course.duration;
-            document.getElementById('modal-req').innerText = course.req;
-            document.getElementById('modal-price').innerText = course.price;
-            document.getElementById('modal-img').src = course.img;
-            document.getElementById('modal-register-btn').href = course.link;
-            
-            document.getElementById('course-modal').showModal();
-        }
-    </script>
+    <script src="\Midterm_project\script\showcourses.js"></script>
 </body>
 
 </html>
