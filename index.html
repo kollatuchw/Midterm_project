@@ -14,58 +14,71 @@
 <body class="flex flex-col min-h-screen">
     <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Navigation Bar -->
-        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8">
+        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8 shadow-lg">
             <div class="w-full flex justify-between items-center px-4 md:px-12">
-                <a href="index.html" class="text-4xl font-bold">BigBobAi</a>
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden border-2 border-blue-400 flex-shrink-0 shadow-md">
+                        <img src="image/image.png" alt="BigBobAi Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/2563eb/ffffff?text=AI';">
+                    </div>
+                    <span class="text-3xl font-bold bg-gradient-to-r from-blue-400 bg-clip-text text-transparent">BigBobAi</span>
+                </a>
                 <ul class="flex space-x-6 text-lg">
-                    <li><a href="index.html" class="hover:text-blue-400 transition-colors"
+                    <li><a href="index.html" class="text-blue-400 font-bold transition-colors"
                             onclick="showJobListings()">Home</a></li>
+                    <li><a href="courses.html" class="hover:text-blue-400 font-bold transition-colors">Courses</a></li>
                     <!-- <li><a href="service.html" class="hover:text-blue-400 transition-colors">Services</a></li> -->
-                    <li><a href="about.html" class="hover:text-blue-400 transition-colors">About us</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 font-bold transition-colors">About us</a></li>
                 </ul>
             </div>
         </nav>
 
         <!-- Header Section -->
-        <header id="main-header" class="text-center mb-12 animate-fade-in">
-            <h1 class="text-4xl font-extrabold ">Welcome to BigBobAi</h1>
-            <p class="text-lg ">Your trusted partner in certification and training solutions.</p>
+        <header id="main-header" class="text-center mb-12 animate-fade-in items-center">
+            <div class="w-28 h-28 rounded-full bg-gray-800 border-4 border-blue-500 flex items-center justify-center overflow-hidden mx-auto mb-5 transition-transform hover:scale-105">
+                <img src="image/image.png" alt=   "BigBobAi Banner Logo" class="w-full h-full object-cover">
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-3">Join the AI Revolution at BigBobAi</h1>
+            <p class="text-lg text-gray-300">ร่วมเป็นส่วนหนึ่งในการขับเคลื่อนนวัตกรรม ปัญญาประดิษฐ์ (AI) และสร้างเทคโนโลยีแห่งอนาคตไปกับเรา</p>
         </header>
 
         <!-- Why Work with Us Section -->
         <div id="why-work-with-us" class="container mx-auto p-8 mb-12 bg-white rounded-xl shadow-md animate-fade-in">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">ทำไมต้องร่วมงานกับเรา?</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">ทำไมต้องร่วมสร้าง AI กับเรา?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Box 1: Cutting-Edge AI -->
                 <div class="flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zM11 15h2v2h-2z" />
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">วัฒนธรรมองค์กรที่เปิดกว้าง</h3>
-                    <p class="text-gray-600 text-sm">เราส่งเสริมสภาพแวดล้อมที่สร้างสรรค์และทำงานร่วมกันได้อย่างอิสระ</p>
+                    <div class="p-4 bg-blue-50 rounded-full mb-4">
+                        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">เทคโนโลยี AI ล้ำสมัย</h3>
+                    <p class="text-gray-600 text-sm">เข้าถึงทรัพยากรประมวลผลระดับสูง (GPU Cloud) และโมเดล AI ล่าสุด (LLMs, Computer Vision)</p>
                 </div>
+                <!-- Box 2: Growth -->
                 <div class="flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">โอกาสในการเติบโต</h3>
-                    <p class="text-gray-600 text-sm">เราลงทุนในการพัฒนาพนักงาน และมอบโอกาสในการก้าวหน้าในสายอาชีพ</p>
+                    <div class="p-4 bg-blue-50 rounded-full mb-4">
+                        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">เติบโตอย่างไร้ขีดจำกัด</h3>
+                    <p class="text-gray-600 text-sm">สนับสนุนทุนการวิจัย คอร์สเรียนสากล งานสัมมนา AI ระดับโลก และโอกาสเติบโตในสายงาน Tech</p>
                 </div>
+                <!-- Box 3: Flexible & Culture -->
                 <div class="flex flex-col items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-500 mb-4" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zM11 15h2v2h-2z" />
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">สวัสดิการที่ยอดเยี่ยม</h3>
-                    <p class="text-gray-600 text-sm">เรามอบสวัสดิการที่ครอบคลุม ทั้งด้านสุขภาพและคุณภาพชีวิตที่ดี</p>
+                    <div class="p-4 bg-blue-50 rounded-full mb-4">
+                        <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h5m-5 0V12m0 0h5m-5 0H7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">การทำงานยุคใหม่ & สวัสดิการ</h3>
+                    <p class="text-gray-600 text-sm">เน้นผลงานมากกว่าเวลาเข้างาน (Flexible / Hybrid Working) พร้อมอุปกรณ์สเปกท็อปเลือกได้เอง</p>
                 </div>
             </div>
         </div>
-
+        
         <h2 id="job-listings-title" class="text-3xl font-bold text-center mb-8 animate-fade-in">
             ตำแหน่งที่เราเปิดรับ</h2>
 
