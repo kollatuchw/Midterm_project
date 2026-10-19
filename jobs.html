@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dracula">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Vacancies | BigBobAi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI (ล็อกเวอร์ชัน 4 เพื่อให้ชื่อคลาสไม่เปลี่ยน) -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Navigation Bar (เหมือนหน้า index) -->
+        <nav class="bg-gray-800 text-white p-3 sticky top-0 z-50 rounded-lg mb-8 shadow-lg">
+            <div class="w-full flex justify-between items-center px-4 md:px-12">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden border-2 border-blue-400 flex-shrink-0 shadow-md">
+                        <img src="image/image.png" alt="BigBobAi Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/2563eb/ffffff?text=AI';">
+                    </div>
+                    <span class="text-3xl font-bold bg-gradient-to-r from-blue-400 bg-clip-text text-transparent">BigBobAi</span>
+                </a>
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="index.html" class="hover:text-blue-400 font-bold transition-colors">Home</a></li>
+                    <li><a href="jobs.html" class="text-blue-400 font-bold transition-colors">Jobs</a></li>
+                    <li><a href="courses.html" class="hover:text-blue-400 font-bold transition-colors">Courses</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 font-bold transition-colors">About us</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-3">ตำแหน่งงานด้าน AI และดิจิทัล</h1>
+            <p class="text-lg text-gray-300">Job Vacancies · ตำแหน่งงานยุคใหม่ที่ใช้ AI สนับสนุน เปิดรับสมัครทั้งหมด
+                <span id="job-count" class="font-bold text-blue-400">0</span> ตำแหน่ง</p>
+        </header>
+
+        <!-- Job cards (สร้างจากข้อมูลด้านล่าง) -->
+        <section id="job-list" class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start"></section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12">
+        <div class="container mx-auto">
+            <p>&copy; 2026 BigBobAi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ข้อมูลตำแหน่งงาน: เพิ่มหรือแก้ไขตำแหน่งได้ที่นี่ แล้วการ์ดจะเปลี่ยนตามเอง
+        const jobs = [
+            {
+                company: "Siam Smart Solution Co., Ltd.",
+                loc: "สาทร / กรุงเทพฯ",
+                date: "15-Aug-2568",
+                title: "Digital & AI Transformation Associate",
+                intro: "Analyze workflows across departments and introduce No-Code/Low-Code AI automation tools, making business processes faster, highly accurate, and more efficient.",
+                salary: "30,000 - 50,000",
+                resp: [
+                    "Audit traditional business workflows and design new, AI-driven processes that eliminate manual and redundant steps.",
+                    "Build and connect automated workflows using No-Code/Low-Code platforms (Zapier, Make.com, Microsoft Power Automate, etc.).",
+                    "Gather, clean, and analyze data using AI models, creating dashboards (Power BI, Tableau, Google Sheets) for management decision-making.",
+                    "Conduct workshops, training sessions, and produce internal documentation to foster an AI-ready culture.",
+                    "Ensure all AI integrations protect user privacy and comply with Thailand’s PDPA and ethical AI frameworks.",
+                    "Monitor implementation progress, calculate estimated ROI, and present transformation reports to executives."
+                ],
+                req: [
+                    "Bachelor’s degree in Business Administration, MIS, Data Science, Engineering, or related fields.",
+                    "Solid understanding of applied AI, Generative AI tools, and AI literacy.",
+                    "Proficiency in No-Code/Low-Code Automation Tools (Zapier, Make, Power Automate, etc.).",
+                    "Competency in data analysis tools (Advanced Excel, Google Sheets, Power BI, or Tableau).",
+                    "Growth mindset, adaptability, and change management skills.",
+                    "Outstanding presentation and communication skills, able to explain complex tech in simple terms.",
+                    "Strong awareness of ethical AI practices and PDPA regulations."
+                ],
+                benefits: [
+                    "High-performance workspace equipment (MacBook or equivalent high-spec laptop)",
+                    "Unlimited learning budget on platforms like Coursera, Udemy, and top global institutions",
+                    "Fully sponsored tickets to national tech, innovation, and AI summits",
+                    "Comprehensive health insurance and annual check-ups",
+                    "Travel and fuel allowance for corporate client visits"
+                ]
+            },
+            {
+                company: "NexGen Innovations Co., Ltd.",
+                loc: "บางนา / ใกล้รถไฟฟ้า",
+                date: "15-Aug-2568",
+                title: "AI-Assisted Web Developer",
+                intro: "Frontend Developer proficient in HTML5, CSS3, and JavaScript who uses AI coding tools (GitHub Copilot, Cursor, ChatGPT, Claude, V0) to boost coding speed, accuracy, and workflow efficiency.",
+                salary: "40,000 - 70,000",
+                resp: [
+                    "Design and write clean, high-performance client-side code using HTML5, CSS3, and ES6+ JavaScript, translating Figma designs into interactive interfaces.",
+                    "Leverage AI coding assistants across generation, debugging, refactoring, and unit testing to reduce repetitive tasks.",
+                    "Develop fully responsive layouts for mobile, tablet, and desktop, adhering to WCAG accessibility standards.",
+                    "Partner with Backend Developers to consume APIs via JSON, and sync with PM and QA teams to maintain code standards.",
+                    "Optimize assets and web architecture to achieve a Lighthouse Performance Score of 85+.",
+                    "Diagnose, debug, and resolve cross-browser compatibility issues."
+                ],
+                req: [
+                    "Bachelor’s degree in Computer Engineering, Computer Science, IT, or equivalent experience with a strong web portfolio.",
+                    "Advanced proficiency in HTML5, CSS3, and JavaScript (Vanilla & ES6+).",
+                    "Familiarity with modern CSS frameworks (e.g., Tailwind CSS, Bootstrap).",
+                    "Mastery of AI-powered development tools (GitHub Copilot, Cursor, Tabnine, ChatGPT, Claude).",
+                    "Strong understanding of Git version control and collaborative platforms like GitHub or GitLab.",
+                    "A proactive mindset with a strong passion for integrating AI into daily engineering workflows."
+                ],
+                benefits: [
+                    "Free Pro licenses for essential AI tools (GitHub Copilot, Cursor Pro, ChatGPT Plus, etc.)",
+                    "Premium health and dental insurance",
+                    "Retirement plan (provident fund) with special company matching rates",
+                    "Activity areas, fitness classes, and corporate sports club access"
+                ]
+            },
+            {
+                company: "Creative Mind Studio Co., Ltd.",
+                loc: "ลาดพร้าว / กรุงเทพฯ",
+                date: "01-Sep-2569",
+                title: "AI Content & Prompt Specialist",
+                intro: "Creative marketer who uses Generative AI tools to produce marketing copy, images, and video scripts at scale while keeping brand voice consistent and content accurate.",
+                salary: "28,000 - 45,000",
+                resp: [
+                    "Design, test, and maintain a library of prompts for text, image, and video generation tools.",
+                    "Produce social media posts, ad copy, and short-video scripts with AI, then edit them to match each brand’s tone of voice.",
+                    "Fact-check AI output and review it for copyright, bias, and PDPA compliance before publishing.",
+                    "Analyze campaign results and use the insights to improve prompts and content strategy.",
+                    "Train team members on effective AI-assisted content workflows."
+                ],
+                req: [
+                    "Bachelor’s degree in Communication Arts, Marketing, Digital Media, or related fields.",
+                    "Hands-on experience with Generative AI tools (ChatGPT, Claude, Midjourney, Canva AI, etc.).",
+                    "Excellent Thai and good English writing skills with creative storytelling ability.",
+                    "Basic understanding of social media analytics.",
+                    "Portfolio of AI-assisted content is a strong plus."
+                ],
+                benefits: [
+                    "Paid subscriptions to leading AI content tools",
+                    "Hybrid working (3 days in office, 2 days at home)",
+                    "Annual creative workshop and conference budget",
+                    "Health insurance and performance bonus"
+                ]
+            },
+            {
+                company: "DataBright Analytics Co., Ltd.",
+                loc: "อโศก / กรุงเทพฯ",
+                date: "01-Sep-2569",
+                title: "Junior Data Analyst (AI-Powered BI)",
+                intro: "Turn raw sales and customer data into executive dashboards and clear recommendations using Looker Studio, Power BI, and AI assistants.",
+                salary: "30,000 - 45,000",
+                resp: [
+                    "Clean and prepare datasets from Excel, Google Sheets, and databases for analysis.",
+                    "Build interactive dashboards (Looker Studio, Power BI) that summarize key business metrics for executives.",
+                    "Use AI assistants to speed up analysis, write formulas and SQL, and draft insight summaries.",
+                    "Present findings and recommendations (e.g., which branch or product to invest in) to management.",
+                    "Validate results with basic statistical tests and clearly state data limitations."
+                ],
+                req: [
+                    "Bachelor’s degree in Statistics, Data Science, Business Analytics, IT, or related fields.",
+                    "Strong skills in Excel or Google Sheets (VLOOKUP, SUMIFS, Pivot Table).",
+                    "Experience with Looker Studio, Power BI, or Tableau.",
+                    "Basic SQL or Python is a plus.",
+                    "Ability to explain data insights to non-technical audiences."
+                ],
+                benefits: [
+                    "High-spec laptop and dual monitors",
+                    "Budget for data and AI certifications (Google, Microsoft)",
+                    "Health insurance and annual check-ups",
+                    "Provident fund with company matching"
+                ]
+            }
+        ];
+
+        const list = (items) => items.map((t) => `<li>${t}</li>`).join("");
+
+        document.getElementById("job-count").textContent = jobs.length;
+        document.getElementById("job-list").innerHTML = jobs.map((j) => `
+            <article class="card bg-white text-gray-700 shadow-xl border border-gray-200">
+                <div class="card-body">
+                    <p class="font-semibold text-blue-600">${j.company}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-outline border-gray-400 text-gray-600">📍 ${j.loc}</span>
+                        <span class="badge badge-outline border-gray-400 text-gray-600">🗓 ${j.date}</span>
+                    </div>
+                    <h2 class="card-title text-2xl text-gray-800">${j.title}</h2>
+                    <p class="text-sm text-gray-600">${j.intro}</p>
+                    <div><span class="badge badge-lg bg-blue-50 text-blue-700 border-blue-200">💰 เงินเดือน ${j.salary} THB</span></div>
+
+                    <div class="collapse collapse-arrow bg-blue-50 mt-2">
+                        <input type="checkbox" aria-label="ดูรายละเอียดตำแหน่ง ${j.title}">
+                        <div class="collapse-title font-semibold text-gray-800">ดูรายละเอียดตำแหน่ง</div>
+                        <div class="collapse-content space-y-4 text-sm text-gray-700">
+                            <div><h3 class="font-bold text-blue-600 mb-1">Key responsibilities</h3>
+                                <ul class="list-disc pl-5 space-y-1">${list(j.resp)}</ul></div>
+                            <div><h3 class="font-bold text-blue-600 mb-1">What we would like to see</h3>
+                                <ul class="list-disc pl-5 space-y-1">${list(j.req)}</ul></div>
+                            <div><h3 class="font-bold text-blue-600 mb-1">Benefits</h3>
+                                <ul class="list-disc pl-5 space-y-1">${list(j.benefits)}</ul></div>
+                        </div>
+                    </div>
+
+                    <div class="card-actions justify-end mt-2">
+                        <!-- เปลี่ยน href เป็นลิงก์ฟอร์มสมัครงานจริงของคุณ -->
+                        <a href="#" class="btn bg-blue-600 hover:bg-blue-700 text-white border-0">สมัครตำแหน่งนี้</a>
+                    </div>
+                </div>
+            </article>`).join("");
+    </script>
+</body>
+
+</html>
